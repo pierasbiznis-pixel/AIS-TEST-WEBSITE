@@ -1,0 +1,21 @@
+# Claude tooling
+.claude/
+CLAUDE.md
+
+# Screenshot temp folders
+temporary screenshots/
+.screenshot-*/
+.sp*/
+.sp-*/
+
+# Reference images
+*.png
+
+# Large video files
+*.mov
+*.MOV
+*.mp4
+*.MP4
+
+# Node
+node_modules/
