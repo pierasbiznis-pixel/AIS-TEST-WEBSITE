@@ -8,8 +8,8 @@ temporary screenshots/
 .sp*/
 .sp-*/
 
-# Reference images
-*.png
+# Reference images (root-level only)
+/*.png
 
 # Large video files
 *.mov
