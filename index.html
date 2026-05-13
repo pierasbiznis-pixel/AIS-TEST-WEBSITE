@@ -406,59 +406,56 @@
       background: #fff;
       border-top: 1px solid rgba(28,53,117,0.06);
       border-bottom: 1px solid rgba(28,53,117,0.06);
-      padding: 52px 0;
+      padding: 44px 0;
     }
     .countries-strip-inner {
-      max-width: 900px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 0 32px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
     }
     .countries-strip-label {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(28,53,117,0.32);
+      color: rgba(28,53,117,0.28);
     }
     .countries-strip-list {
       display: flex;
+      align-items: center;
       width: 100%;
-      border: 1px solid rgba(28,53,117,0.09);
-      border-radius: 3px;
-      overflow: hidden;
+      justify-content: center;
     }
     .cstrip-item {
-      flex: 1;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 8px;
-      padding: 28px 20px;
-      border-right: 1px solid rgba(28,53,117,0.07);
-      background: #fff;
-      transition: background 0.2s;
+      gap: 11px;
+      padding: 0 32px;
+      border-right: 1px solid rgba(28,53,117,0.1);
     }
-    .cstrip-item:last-child { border-right: none; }
-    .cstrip-item:hover { background: var(--light-bg); }
-    .cstrip-flag { font-size: 2rem; line-height: 1; }
-    .cstrip-code {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: 1.7rem;
-      color: var(--navy-dark);
-      letter-spacing: 0.06em;
-      line-height: 1;
+    .cstrip-item:first-child { padding-left: 0; }
+    .cstrip-item:last-child { border-right: none; padding-right: 0; }
+    .cstrip-flag-img {
+      width: 38px;
+      height: 26px;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.18);
+      flex-shrink: 0;
+      display: block;
     }
     .cstrip-name {
-      font-size: 0.65rem;
-      color: rgba(28,53,117,0.38);
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--navy-dark);
+      letter-spacing: 0.05em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     /* ── SHARED SECTION TYPOGRAPHY ── */
@@ -753,8 +750,8 @@
       .nav-right { display: none; }
       .nav-descriptor, .nav-divider { display: none; }
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-      .countries-strip-inner { gap: 24px; }
-      .cstrip-item { padding: 22px 12px; }
+      .countries-strip-inner { gap: 22px; }
+      .cstrip-item { padding: 0 20px; }
     }
 
     @media (max-width: 768px) {
@@ -767,10 +764,11 @@
       .services-inner { padding: 0 20px; }
       .services-hdr { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
       .services-hdr-right { display: none; }
-      .countries-strip { padding: 36px 0; }
+      .countries-strip { padding: 32px 0; }
       .countries-strip-inner { padding: 0 20px; gap: 20px; }
-      .cstrip-code { font-size: 1.4rem; }
-      .cstrip-flag { font-size: 1.6rem; }
+      .cstrip-item { padding: 0 14px; gap: 8px; }
+      .cstrip-name { font-size: 0.95rem; }
+      .cstrip-flag-img { width: 30px; height: 20px; }
       .contact-section { padding: 64px 0; }
       .contact-inner { padding: 0 20px; gap: 32px; }
       .contact-form { padding: 28px 20px; }
@@ -940,24 +938,20 @@
     <span class="countries-strip-label" data-i18n="countries.label">Šalys kurias važiuojame</span>
     <div class="countries-strip-list">
       <div class="cstrip-item">
-        <span class="cstrip-flag">🇩🇪</span>
-        <span class="cstrip-code">DE</span>
-        <span class="cstrip-name">Deutschland</span>
+        <img src="https://flagcdn.com/w80/de.png" alt="Germany" class="cstrip-flag-img">
+        <span class="cstrip-name" data-i18n="country.de">Vokietija</span>
       </div>
       <div class="cstrip-item">
-        <span class="cstrip-flag">🇧🇪</span>
-        <span class="cstrip-code">BE</span>
-        <span class="cstrip-name">Belgique</span>
+        <img src="https://flagcdn.com/w80/be.png" alt="Belgium" class="cstrip-flag-img">
+        <span class="cstrip-name" data-i18n="country.be">Belgija</span>
       </div>
       <div class="cstrip-item">
-        <span class="cstrip-flag">🇳🇱</span>
-        <span class="cstrip-code">NL</span>
-        <span class="cstrip-name">Nederland</span>
+        <img src="https://flagcdn.com/w80/nl.png" alt="Netherlands" class="cstrip-flag-img">
+        <span class="cstrip-name" data-i18n="country.nl">Nyderlandai</span>
       </div>
       <div class="cstrip-item">
-        <span class="cstrip-flag">🇫🇷</span>
-        <span class="cstrip-code">FR</span>
-        <span class="cstrip-name">France</span>
+        <img src="https://flagcdn.com/w80/fr.png" alt="France" class="cstrip-flag-img">
+        <span class="cstrip-name" data-i18n="country.fr">Prancūzija</span>
       </div>
     </div>
   </div>
@@ -1088,6 +1082,7 @@ const translations = {
     'card3.tag':'LTL','card3.title':'Daliniai kroviniai','card3.desc':'Iš Lietuvos į Europą ir iš Europos į Lietuvą.',
     'card.cta':'Užklausti',
     'countries.label':'Šalys kurias važiuojame',
+    'country.de':'Vokietija','country.be':'Belgija','country.nl':'Nyderlandai','country.fr':'Prancūzija',
     'contact.label':'Susisiekite','contact.title':'Aptarkime jūsų krovinį',
     'contact.desc':'Turite klausimų dėl paslaugų arba norite gauti kainoraštį? Susisiekite su mumis — atsakysime greitai.',
     'contact.address.label':'Adresas','contact.phone.label':'Telefonas','contact.email.label':'El. paštas',
@@ -1111,6 +1106,7 @@ const translations = {
     'card3.tag':'LTL','card3.title':'Partial loads','card3.desc':'From Lithuania to Europe and from Europe to Lithuania.',
     'card.cta':'Enquire',
     'countries.label':'Countries we serve',
+    'country.de':'Germany','country.be':'Belgium','country.nl':'Netherlands','country.fr':'France',
     'contact.label':'Get in touch','contact.title':'Let\'s discuss your cargo',
     'contact.desc':'Have questions about our services or want a quote? Contact us — we\'ll respond promptly.',
     'contact.address.label':'Address','contact.phone.label':'Phone','contact.email.label':'Email',
@@ -1134,6 +1130,7 @@ const translations = {
     'card3.tag':'LTL','card3.title':'Сборные грузы','card3.desc':'Из Литвы в Европу и из Европы в Литву.',
     'card.cta':'Запросить',
     'countries.label':'Страны которые мы обслуживаем',
+    'country.de':'Германия','country.be':'Бельгия','country.nl':'Нидерланды','country.fr':'Франция',
     'contact.label':'Свяжитесь с нами','contact.title':'Обсудим ваш груз',
     'contact.desc':'Есть вопросы или хотите получить предложение? Свяжитесь с нами — ответим быстро.',
     'contact.address.label':'Адрес','contact.phone.label':'Телефон','contact.email.label':'Эл. почта',
@@ -1157,6 +1154,7 @@ const translations = {
     'card3.tag':'LTL','card3.title':'Teilladungen','card3.desc':'Von Litauen nach Europa und von Europa nach Litauen.',
     'card.cta':'Anfragen',
     'countries.label':'Länder die wir anfahren',
+    'country.de':'Deutschland','country.be':'Belgien','country.nl':'Niederlande','country.fr':'Frankreich',
     'contact.label':'Kontakt aufnehmen','contact.title':'Sprechen wir über Ihre Fracht',
     'contact.desc':'Haben Sie Fragen zu unseren Diensten oder möchten Sie ein Angebot? Kontaktieren Sie uns — wir antworten schnell.',
     'contact.address.label':'Adresse','contact.phone.label':'Telefon','contact.email.label':'E-Mail',
@@ -1180,6 +1178,7 @@ const translations = {
     'card3.tag':'LTL','card3.title':'Ładunki częściowe','card3.desc':'Z Litwy do Europy i z Europy do Litwy.',
     'card.cta':'Zapytaj',
     'countries.label':'Kraje które obsługujemy',
+    'country.de':'Niemcy','country.be':'Belgia','country.nl':'Holandia','country.fr':'Francja',
     'contact.label':'Skontaktuj się','contact.title':'Porozmawiajmy o Twoim ładunku',
     'contact.desc':'Masz pytania dotyczące usług lub chcesz otrzymać wycenę? Skontaktuj się z nami — odpowiemy szybko.',
     'contact.address.label':'Adres','contact.phone.label':'Telefon','contact.email.label':'E-mail',
