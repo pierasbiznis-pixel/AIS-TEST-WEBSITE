@@ -140,7 +140,7 @@
       width: 24px;
       height: 2px;
       background: var(--navy-dark);
-      transition: all 0.25s;
+      transition: transform 0.25s, opacity 0.25s;
     }
 
     /* ── HERO ── */
@@ -1175,10 +1175,84 @@
       letter-spacing: 0.03em;
     }
 
+    /* ── MOBILE NAV DRAWER ── */
+    .mobile-nav {
+      position: fixed; inset: 0; z-index: 300;
+      pointer-events: none; visibility: hidden;
+    }
+    .mobile-nav.open { pointer-events: all; visibility: visible; }
+    .mobile-nav-overlay {
+      position: absolute; inset: 0;
+      background: rgba(5,12,35,0.55);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .mobile-nav.open .mobile-nav-overlay { opacity: 1; }
+    .mobile-nav-panel {
+      position: absolute; top: 0; right: 0;
+      width: min(300px, 88vw); height: 100%;
+      background: #fff; display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+    }
+    .mobile-nav.open .mobile-nav-panel { transform: translateX(0); }
+    .mobile-nav-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 20px; border-bottom: 1px solid rgba(28,53,117,0.07);
+      flex-shrink: 0;
+    }
+    .mobile-nav-logo { height: 26px; width: auto; }
+    .mobile-nav-close {
+      background: none; border: none; cursor: pointer;
+      padding: 6px; color: var(--navy-dark);
+      display: flex; align-items: center; border-radius: 2px;
+      transition: background 0.15s;
+    }
+    .mobile-nav-close:hover { background: rgba(28,53,117,0.06); }
+    .mobile-nav-links { display: flex; flex-direction: column; padding: 8px 0; flex: 1; }
+    .mobile-nav-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--navy-dark); text-decoration: none;
+      padding: 14px 24px; border-bottom: 1px solid rgba(28,53,117,0.05);
+      display: block; transition: background 0.15s, color 0.15s;
+    }
+    .mobile-nav-link:hover { background: var(--light-bg); color: var(--blue-btn); }
+    .mobile-nav-footer {
+      padding: 20px 24px 28px; border-top: 1px solid rgba(28,53,117,0.07); flex-shrink: 0;
+    }
+    .mobile-nav-lang { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+    .mobile-nav-lang .lang-btn {
+      color: rgba(28,53,117,0.55);
+      border: 1px solid rgba(28,53,117,0.15);
+      border-radius: 2px;
+      padding: 6px 12px;
+      font-size: 0.72rem;
+    }
+    .mobile-nav-lang .lang-btn:hover { color: var(--navy-dark); background: rgba(28,53,117,0.06); }
+    .mobile-nav-lang .lang-btn.active {
+      color: var(--navy-dark);
+      background: rgba(28,53,117,0.1);
+      border-color: rgba(28,53,117,0.3);
+    }
+    .mobile-nav-cta {
+      display: block; background: var(--blue-btn); color: #fff;
+      padding: 13px 24px; border-radius: 2px;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; text-align: center; transition: background 0.2s;
+    }
+    .mobile-nav-cta:hover { background: #1560b5; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    body.nav-open { overflow: hidden; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) {
-      .nav-links { display: none; }
       .hamburger { display: flex; }
+      .nav-right { display: none; }
+      .nav-descriptor, .nav-divider { display: none; }
       .services-scroll { grid-template-columns: repeat(2, 1fr); }
       .markets-countries { gap: 12px; }
       .about-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1189,17 +1263,73 @@
       .recruitment-inner { flex-direction: column; }
       .why-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
       .stats-strip-inner { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 0 20px; }
+      .hero { min-height: 75vh; padding-bottom: 48px; }
+      .hero-inner { padding: 0 20px; }
+      .hero h1 { font-size: clamp(2rem, 7vw, 3rem); margin-bottom: 16px; }
+      .hero-desc { margin-bottom: 28px; }
+      .hero-btns { gap: 12px; margin-bottom: 28px; }
+      .services-inner { padding: 0 20px; }
+      .services-hdr { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
+      .services-hdr-right { display: none; }
+      .strip-stat { padding: 28px 20px; gap: 14px; }
+      .strip-stat-num { font-size: 2.2rem; }
+      .markets { padding: 64px 0; }
+      .markets-inner { padding: 0 20px; }
+      .about { padding: 64px 0; }
+      .about-inner { padding: 0 20px; }
+      .about-img-col { overflow: hidden; }
+      .about-img-badge { bottom: 16px; right: 16px; }
+      .about-img-main { height: 300px; }
+      .green-content { padding: 60px 20px; }
+      .stats-section { padding: 64px 0; }
+      .stats-inner { padding: 0 20px; }
+      .recruitment { padding: 52px 0; }
+      .recruitment-inner { padding: 0 20px; }
+      .recruitment h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
+      .why { padding: 64px 0; }
+      .why-inner { padding: 0 20px; }
+      .contact-section { padding: 64px 0; }
+      .contact-inner { padding: 0 20px; gap: 32px; }
+      .contact-form { padding: 28px 20px; }
+      .footer-inner { padding: 0 20px; }
+      .footer-main { grid-template-columns: 1fr; gap: 24px; padding: 36px 0 28px; }
+      .footer-contacts { flex-direction: column; align-items: flex-start; }
+      .footer-contact-link { padding: 8px 0; border-left: none; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; }
+      .footer-contact-link:last-child { border-bottom: none; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; padding: 14px 0 20px; gap: 4px; }
     }
 
     @media (max-width: 640px) {
       .services-scroll { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .why-grid { grid-template-columns: 1fr 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-inner { padding: 0 16px; }
+      .hero { min-height: 0; padding-top: 80px; padding-bottom: 36px; }
+      .hero-inner { padding: 0 16px; }
+      .hero h1 { font-size: clamp(1.7rem, 5.5vw, 2.2rem); margin-bottom: 12px; }
+      .hero-desc { font-size: 0.88rem; margin-bottom: 18px; }
+      .hero-btns { margin-bottom: 18px; flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .stats-strip-inner { grid-template-columns: 1fr; }
+      .strip-stat { padding: 20px 16px; gap: 10px; }
+      .strip-stat-num { font-size: 1.9rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .services-inner, .markets-inner, .about-inner,
+      .stats-inner, .recruitment-inner, .why-inner,
+      .contact-inner, .footer-inner { padding-left: 16px; padding-right: 16px; }
+      .contact-form { padding: 24px 16px; }
+      .green-content { padding: 48px 16px; }
     }
 
     /* ── ANIMATIONS ── */
@@ -1225,6 +1355,12 @@
       <span class="nav-descriptor" data-i18n="nav.descriptor">Tarptautinė logistika</span>
     </a>
 
+    <button class="hamburger" id="hamburger-btn" onclick="toggleMobileNav()" aria-label="Meniu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <div class="nav-right">
       <div class="lang-toggle">
         <button class="lang-btn active" data-lang="lt" onclick="setLanguage('lt')">LT</button>
@@ -1240,6 +1376,35 @@
     </div>
   </div>
 </nav>
+
+<!-- ══ MOBILE NAV ══ -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav-overlay" onclick="toggleMobileNav()"></div>
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-top">
+      <img src="brand_assets/user_2276_0480bec8_1756820524.png" alt="AIKETRA" class="mobile-nav-logo">
+      <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Uždaryti">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l12 12M16 4L4 16"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#services" class="mobile-nav-link" onclick="toggleMobileNav()">Paslaugos</a>
+      <a href="#contact" class="mobile-nav-link" onclick="toggleMobileNav()">Susisiekite</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-lang">
+        <button class="lang-btn active" data-lang="lt" onclick="setLanguage('lt')">LT</button>
+        <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+        <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+        <button class="lang-btn" data-lang="pl" onclick="setLanguage('pl')">PL</button>
+      </div>
+      <a href="#contact" class="mobile-nav-cta" onclick="toggleMobileNav()">
+        <span data-i18n="nav.cta">Susisiekti</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
@@ -1646,6 +1811,16 @@ function setLanguage(lang) {
   const saved = localStorage.getItem('aiketra_lang');
   if (saved && translations[saved]) setLanguage(saved);
 })();
+</script>
+
+<script>
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.getElementById('hamburger-btn');
+  const isOpen = nav.classList.toggle('open');
+  btn.classList.toggle('active', isOpen);
+  document.body.classList.toggle('nav-open', isOpen);
+}
 </script>
 
 <script>
