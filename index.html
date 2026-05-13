@@ -276,6 +276,30 @@
       transform: translateY(-2px);
     }
 
+    .btn-call {
+      background: rgba(45,158,79,0.12);
+      color: rgba(255,255,255,0.9);
+      padding: 13px 28px;
+      border-radius: 2px;
+      border: 1.5px solid rgba(45,158,79,0.4);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-call svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .btn-call:hover {
+      background: rgba(45,158,79,0.22);
+      border-color: rgba(45,158,79,0.65);
+      transform: translateY(-2px);
+    }
+
     /* hero fleet image strip */
     .hero-fleet {
       position: relative;
@@ -782,6 +806,7 @@
 
     @media (max-width: 640px) {
       .services-scroll { grid-template-columns: 1fr; }
+      .service-card-img { height: 200px; }
       .form-row { grid-template-columns: 1fr; }
     }
 
@@ -792,7 +817,7 @@
       .hero h1 { font-size: clamp(1.7rem, 5.5vw, 2.2rem); margin-bottom: 12px; }
       .hero-desc { font-size: 0.88rem; margin-bottom: 18px; }
       .hero-btns { margin-bottom: 18px; flex-direction: column; align-items: stretch; }
-      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .btn-primary, .btn-outline, .btn-call { width: 100%; justify-content: center; }
       .services-inner, .contact-inner, .footer-inner { padding-left: 16px; padding-right: 16px; }
       .contact-form { padding: 24px 16px; }
     }
@@ -883,6 +908,10 @@
       <a href="#services" class="btn-primary">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         <span data-i18n="hero.btn.primary">Sužinoti daugiau</span>
+      </a>
+      <a href="tel:+37031571020" class="btn-call">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h4l1.5 3.5-2 1.5c1 2 2.5 3.5 4.5 4.5l1.5-2L17 13v4c0 .5-.5 1-1 1C6 18 2 8.5 3 4.5c0-.5.5-1 1-1v.5z" stroke-linejoin="round"/></svg>
+        <span data-i18n="hero.btn.call">Skambinti dabar</span>
       </a>
       <a href="#contact" class="btn-outline" data-i18n="hero.btn.secondary">Kontaktai</a>
     </div>
@@ -992,6 +1021,15 @@
             <span>info@aiketra.lt</span>
           </div>
         </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="rgba(255,255,255,0.75)" stroke-width="1.4"/><path d="M10 6v4l2.5 2.5" stroke="rgba(255,255,255,0.75)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong data-i18n="contact.hours.label">Darbo laikas</strong>
+            <span data-i18n="contact.hours.value">I–V · 8:00–17:00</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1076,7 +1114,7 @@ const translations = {
     'nav.descriptor':'Tarptautinė logistika','nav.cta':'Susisiekti',
     'hero.title':'Patikimi logistikos sprendimai',
     'hero.desc':'UAB AIKETRA — jūsų patikimas partneris tarptautiniame krovinių vežime. Turime modernų vilkikų parką, profesionalius vairuotojus ir laikomės aukščiausių saugos standartų.',
-    'hero.btn.primary':'Sužinoti daugiau','hero.btn.secondary':'Kontaktai',
+    'hero.btn.primary':'Sužinoti daugiau','hero.btn.call':'Skambinti dabar','hero.btn.secondary':'Kontaktai',
     'services.title':'Mūsų paslaugos','services.subtitle':'2 paslaugų kryptys · visa Europa',
     'card1.tag':'FTL','card1.title':'Tarptautinis transportas','card1.desc':'Pilno krovinio vežimas po visą Europą — greitai ir patikimai.',
     'card3.tag':'LTL','card3.title':'Daliniai kroviniai','card3.desc':'Iš Lietuvos į Europą ir iš Europos į Lietuvą.',
@@ -1085,7 +1123,7 @@ const translations = {
     'country.de':'Vokietija','country.be':'Belgija','country.nl':'Nyderlandai','country.fr':'Prancūzija',
     'contact.label':'Susisiekite','contact.title':'Aptarkime jūsų krovinį',
     'contact.desc':'Turite klausimų dėl paslaugų arba norite gauti kainoraštį? Susisiekite su mumis — atsakysime greitai.',
-    'contact.address.label':'Adresas','contact.phone.label':'Telefonas','contact.email.label':'El. paštas',
+    'contact.address.label':'Adresas','contact.phone.label':'Telefonas','contact.email.label':'El. paštas','contact.hours.label':'Darbo laikas','contact.hours.value':'I–V · 8:00–17:00',
     'form.title':'Užpildykite formą','form.name':'Vardas','form.email':'El. paštas','form.phone':'Telefonas',
     'form.service':'Paslaugos tipas','form.service.placeholder':'Pasirinkite...','form.message':'Žinutė',
     'form.service.opt1':'FTL — Tarptautinis transportas',
@@ -1100,7 +1138,7 @@ const translations = {
     'nav.descriptor':'International logistics','nav.cta':'Contact us',
     'hero.title':'Reliable logistics solutions',
     'hero.desc':'UAB AIKETRA — your trusted partner in international freight transportation. We operate a modern fleet, employ professional drivers, and uphold the highest safety standards.',
-    'hero.btn.primary':'Learn more','hero.btn.secondary':'Contacts',
+    'hero.btn.primary':'Learn more','hero.btn.call':'Call now','hero.btn.secondary':'Contacts',
     'services.title':'Our services','services.subtitle':'2 service types · all of Europe',
     'card1.tag':'FTL','card1.title':'International transport','card1.desc':'Full truck load shipping across Europe — fast and reliably.',
     'card3.tag':'LTL','card3.title':'Partial loads','card3.desc':'From Lithuania to Europe and from Europe to Lithuania.',
@@ -1109,7 +1147,7 @@ const translations = {
     'country.de':'Germany','country.be':'Belgium','country.nl':'Netherlands','country.fr':'France',
     'contact.label':'Get in touch','contact.title':'Let\'s discuss your cargo',
     'contact.desc':'Have questions about our services or want a quote? Contact us — we\'ll respond promptly.',
-    'contact.address.label':'Address','contact.phone.label':'Phone','contact.email.label':'Email',
+    'contact.address.label':'Address','contact.phone.label':'Phone','contact.email.label':'Email','contact.hours.label':'Working hours','contact.hours.value':'Mon–Fri · 8:00–17:00',
     'form.title':'Fill in the form','form.name':'Name','form.email':'Email','form.phone':'Phone',
     'form.service':'Service type','form.service.placeholder':'Select...','form.message':'Message',
     'form.service.opt1':'FTL — International transport',
@@ -1124,7 +1162,7 @@ const translations = {
     'nav.descriptor':'Международная логистика','nav.cta':'Связаться',
     'hero.title':'Надёжные логистические решения',
     'hero.desc':'UAB AIKETRA — ваш надёжный партнёр в сфере международных грузоперевозок. Современный автопарк, профессиональные водители и высокие стандарты безопасности.',
-    'hero.btn.primary':'Узнать больше','hero.btn.secondary':'Контакты',
+    'hero.btn.primary':'Узнать больше','hero.btn.call':'Позвонить','hero.btn.secondary':'Контакты',
     'services.title':'Наши услуги','services.subtitle':'2 направления · вся Европа',
     'card1.tag':'FTL','card1.title':'Международные перевозки','card1.desc':'Перевозка полных грузов по всей Европе — быстро и надёжно.',
     'card3.tag':'LTL','card3.title':'Сборные грузы','card3.desc':'Из Литвы в Европу и из Европы в Литву.',
@@ -1133,7 +1171,7 @@ const translations = {
     'country.de':'Германия','country.be':'Бельгия','country.nl':'Нидерланды','country.fr':'Франция',
     'contact.label':'Свяжитесь с нами','contact.title':'Обсудим ваш груз',
     'contact.desc':'Есть вопросы или хотите получить предложение? Свяжитесь с нами — ответим быстро.',
-    'contact.address.label':'Адрес','contact.phone.label':'Телефон','contact.email.label':'Эл. почта',
+    'contact.address.label':'Адрес','contact.phone.label':'Телефон','contact.email.label':'Эл. почта','contact.hours.label':'Рабочее время','contact.hours.value':'Пн–Пт · 8:00–17:00',
     'form.title':'Заполните форму','form.name':'Имя','form.email':'Эл. почта','form.phone':'Телефон',
     'form.service':'Тип услуги','form.service.placeholder':'Выберите...','form.message':'Сообщение',
     'form.service.opt1':'FTL — Международные перевозки',
@@ -1148,7 +1186,7 @@ const translations = {
     'nav.descriptor':'Internationale Logistik','nav.cta':'Kontakt',
     'hero.title':'Zuverlässige Logistiklösungen',
     'hero.desc':'UAB AIKETRA — Ihr zuverlässiger Partner im internationalen Güterverkehr. Moderner Fuhrpark, professionelle Fahrer und höchste Sicherheitsstandards.',
-    'hero.btn.primary':'Mehr erfahren','hero.btn.secondary':'Kontakt',
+    'hero.btn.primary':'Mehr erfahren','hero.btn.call':'Jetzt anrufen','hero.btn.secondary':'Kontakt',
     'services.title':'Unsere Dienstleistungen','services.subtitle':'2 Servicebereiche · ganz Europa',
     'card1.tag':'FTL','card1.title':'Internationaler Transport','card1.desc':'Komplettladungen quer durch Europa — schnell und zuverlässig.',
     'card3.tag':'LTL','card3.title':'Teilladungen','card3.desc':'Von Litauen nach Europa und von Europa nach Litauen.',
@@ -1157,7 +1195,7 @@ const translations = {
     'country.de':'Deutschland','country.be':'Belgien','country.nl':'Niederlande','country.fr':'Frankreich',
     'contact.label':'Kontakt aufnehmen','contact.title':'Sprechen wir über Ihre Fracht',
     'contact.desc':'Haben Sie Fragen zu unseren Diensten oder möchten Sie ein Angebot? Kontaktieren Sie uns — wir antworten schnell.',
-    'contact.address.label':'Adresse','contact.phone.label':'Telefon','contact.email.label':'E-Mail',
+    'contact.address.label':'Adresse','contact.phone.label':'Telefon','contact.email.label':'E-Mail','contact.hours.label':'Arbeitszeiten','contact.hours.value':'Mo–Fr · 8:00–17:00',
     'form.title':'Formular ausfüllen','form.name':'Name','form.email':'E-Mail','form.phone':'Telefon',
     'form.service':'Dienstleistungstyp','form.service.placeholder':'Auswählen...','form.message':'Nachricht',
     'form.service.opt1':'FTL — Internationaler Transport',
@@ -1172,7 +1210,7 @@ const translations = {
     'nav.descriptor':'Logistyka międzynarodowa','nav.cta':'Kontakt',
     'hero.title':'Niezawodne rozwiązania logistyczne',
     'hero.desc':'UAB AIKETRA — Twój zaufany partner w międzynarodowym transporcie towarów. Nowoczesna flota, profesjonalni kierowcy i najwyższe standardy bezpieczeństwa.',
-    'hero.btn.primary':'Dowiedz się więcej','hero.btn.secondary':'Kontakt',
+    'hero.btn.primary':'Dowiedz się więcej','hero.btn.call':'Zadzwoń','hero.btn.secondary':'Kontakt',
     'services.title':'Nasze usługi','services.subtitle':'2 rodzaje usług · cała Europa',
     'card1.tag':'FTL','card1.title':'Transport międzynarodowy','card1.desc':'Pełne ładunki w całej Europie — szybko i niezawodnie.',
     'card3.tag':'LTL','card3.title':'Ładunki częściowe','card3.desc':'Z Litwy do Europy i z Europy do Litwy.',
@@ -1181,7 +1219,7 @@ const translations = {
     'country.de':'Niemcy','country.be':'Belgia','country.nl':'Holandia','country.fr':'Francja',
     'contact.label':'Skontaktuj się','contact.title':'Porozmawiajmy o Twoim ładunku',
     'contact.desc':'Masz pytania dotyczące usług lub chcesz otrzymać wycenę? Skontaktuj się z nami — odpowiemy szybko.',
-    'contact.address.label':'Adres','contact.phone.label':'Telefon','contact.email.label':'E-mail',
+    'contact.address.label':'Adres','contact.phone.label':'Telefon','contact.email.label':'E-mail','contact.hours.label':'Godziny pracy','contact.hours.value':'Pon–Pt · 8:00–17:00',
     'form.title':'Wypełnij formularz','form.name':'Imię','form.email':'E-mail','form.phone':'Telefon',
     'form.service':'Typ usługi','form.service.placeholder':'Wybierz...','form.message':'Wiadomość',
     'form.service.opt1':'FTL — Transport międzynarodowy',
