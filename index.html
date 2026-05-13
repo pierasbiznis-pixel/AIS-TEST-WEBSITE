@@ -1588,11 +1588,11 @@
           <label data-i18n="form.service">Paslaugos tipas</label>
           <select>
             <option value="" disabled selected style="color:#888" data-i18n="form.service.placeholder">Pasirinkite...</option>
-            <option data-i18n="form.service.opt1">Tarptautinis transportas</option>
-            <option data-i18n="form.service.opt2">Tentinis transportas</option>
-            <option data-i18n="form.service.opt3">LTL</option>
-            <option data-i18n="form.service.opt4">Daliniai kroviniai</option>
-            <option data-i18n="form.service.opt5">Express</option>
+            <option value="ftl" data-i18n="form.service.opt1">FTL — Tarptautinis transportas</option>
+            <option value="tentinis" data-i18n="form.service.opt2">Tentinis transportas</option>
+            <option value="ltl" data-i18n="form.service.opt3">LTL — Daliniai kroviniai</option>
+            <option value="express" data-i18n="form.service.opt4">Express — Skubus pristatymas</option>
+            <option value="kita" data-i18n="form.service.opt5">Kita</option>
           </select>
         </div>
       </div>
@@ -1666,8 +1666,8 @@ const translations = {
     'contact.address.label':'Adresas','contact.phone.label':'Telefonas','contact.email.label':'El. paštas',
     'form.title':'Užpildykite formą','form.name':'Vardas','form.email':'El. paštas','form.phone':'Telefonas',
     'form.service':'Paslaugos tipas','form.service.placeholder':'Pasirinkite...','form.message':'Žinutė',
-    'form.service.opt1':'Tarptautinis transportas','form.service.opt2':'Tentinis transportas',
-    'form.service.opt3':'LTL','form.service.opt4':'Daliniai kroviniai','form.service.opt5':'Express',
+    'form.service.opt1':'FTL — Tarptautinis transportas','form.service.opt2':'Tentinis transportas',
+    'form.service.opt3':'LTL — Daliniai kroviniai','form.service.opt4':'Express — Skubus pristatymas','form.service.opt5':'Kita',
     'form.name.placeholder':'Jūsų vardas','form.message.placeholder':'Aprašykite savo krovinio poreikius...',
     'form.submit':'Siųsti žinutę',
     'footer.tagline':'Tarptautinė logistika · FTL · LTL · Express',
@@ -1694,8 +1694,8 @@ const translations = {
     'contact.address.label':'Address','contact.phone.label':'Phone','contact.email.label':'Email',
     'form.title':'Fill in the form','form.name':'Name','form.email':'Email','form.phone':'Phone',
     'form.service':'Service type','form.service.placeholder':'Select...','form.message':'Message',
-    'form.service.opt1':'International transport','form.service.opt2':'Curtainsider transport',
-    'form.service.opt3':'LTL','form.service.opt4':'Partial loads','form.service.opt5':'Express',
+    'form.service.opt1':'FTL — International transport','form.service.opt2':'Curtainsider transport',
+    'form.service.opt3':'LTL — Partial loads','form.service.opt4':'Express — Urgent delivery','form.service.opt5':'Other',
     'form.name.placeholder':'Your name','form.message.placeholder':'Describe your cargo requirements...',
     'form.submit':'Send message',
     'footer.tagline':'International logistics · FTL · LTL · Express',
@@ -1722,8 +1722,8 @@ const translations = {
     'contact.address.label':'Адрес','contact.phone.label':'Телефон','contact.email.label':'Эл. почта',
     'form.title':'Заполните форму','form.name':'Имя','form.email':'Эл. почта','form.phone':'Телефон',
     'form.service':'Тип услуги','form.service.placeholder':'Выберите...','form.message':'Сообщение',
-    'form.service.opt1':'Международные перевозки','form.service.opt2':'Тентовые перевозки',
-    'form.service.opt3':'LTL','form.service.opt4':'Сборные грузы','form.service.opt5':'Экспресс',
+    'form.service.opt1':'FTL — Международные перевозки','form.service.opt2':'Тентовые перевозки',
+    'form.service.opt3':'LTL — Сборные грузы','form.service.opt4':'Экспресс — Срочная доставка','form.service.opt5':'Другое',
     'form.name.placeholder':'Ваше имя','form.message.placeholder':'Опишите ваши потребности в перевозке...',
     'form.submit':'Отправить сообщение',
     'footer.tagline':'Международная логистика · FTL · LTL · Экспресс',
@@ -1750,8 +1750,8 @@ const translations = {
     'contact.address.label':'Adresse','contact.phone.label':'Telefon','contact.email.label':'E-Mail',
     'form.title':'Formular ausfüllen','form.name':'Name','form.email':'E-Mail','form.phone':'Telefon',
     'form.service':'Dienstleistungstyp','form.service.placeholder':'Auswählen...','form.message':'Nachricht',
-    'form.service.opt1':'Internationaler Transport','form.service.opt2':'Planenauflieger',
-    'form.service.opt3':'LTL','form.service.opt4':'Teilladungen','form.service.opt5':'Express',
+    'form.service.opt1':'FTL — Internationaler Transport','form.service.opt2':'Planenauflieger',
+    'form.service.opt3':'LTL — Teilladungen','form.service.opt4':'Express — Eillieferung','form.service.opt5':'Sonstiges',
     'form.name.placeholder':'Ihr Name','form.message.placeholder':'Beschreiben Sie Ihre Frachtanforderungen...',
     'form.submit':'Nachricht senden',
     'footer.tagline':'Internationale Logistik · FTL · LTL · Express',
@@ -1778,8 +1778,8 @@ const translations = {
     'contact.address.label':'Adres','contact.phone.label':'Telefon','contact.email.label':'E-mail',
     'form.title':'Wypełnij formularz','form.name':'Imię','form.email':'E-mail','form.phone':'Telefon',
     'form.service':'Typ usługi','form.service.placeholder':'Wybierz...','form.message':'Wiadomość',
-    'form.service.opt1':'Transport międzynarodowy','form.service.opt2':'Transport firankowy',
-    'form.service.opt3':'LTL','form.service.opt4':'Ładunki częściowe','form.service.opt5':'Express',
+    'form.service.opt1':'FTL — Transport międzynarodowy','form.service.opt2':'Transport firankowy',
+    'form.service.opt3':'LTL — Ładunki częściowe','form.service.opt4':'Express — Dostawa pilna','form.service.opt5':'Inne',
     'form.name.placeholder':'Twoje imię','form.message.placeholder':'Opisz swoje potrzeby transportowe...',
     'form.submit':'Wyślij wiadomość',
     'footer.tagline':'Logistyka międzynarodowa · FTL · LTL · Express',
