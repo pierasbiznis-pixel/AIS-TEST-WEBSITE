@@ -403,54 +403,62 @@
 
     /* ── COUNTRIES STRIP ── */
     .countries-strip {
-      background: var(--light-bg);
+      background: #fff;
       border-top: 1px solid rgba(28,53,117,0.06);
       border-bottom: 1px solid rgba(28,53,117,0.06);
-      padding: 28px 0;
+      padding: 52px 0;
     }
     .countries-strip-inner {
-      max-width: 1400px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 32px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
+      gap: 32px;
     }
     .countries-strip-label {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(28,53,117,0.38);
-      white-space: nowrap;
+      color: rgba(28,53,117,0.32);
     }
     .countries-strip-list {
       display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .cstrip-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
+      width: 100%;
       border: 1px solid rgba(28,53,117,0.09);
       border-radius: 3px;
-      padding: 10px 20px;
-      transition: box-shadow 0.2s, transform 0.2s;
+      overflow: hidden;
     }
-    .cstrip-item:hover {
-      box-shadow: 0 4px 18px rgba(28,53,117,0.1);
-      transform: translateY(-2px);
+    .cstrip-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 28px 20px;
+      border-right: 1px solid rgba(28,53,117,0.07);
+      background: #fff;
+      transition: background 0.2s;
     }
-    .cstrip-flag { font-size: 1.5rem; line-height: 1; }
+    .cstrip-item:last-child { border-right: none; }
+    .cstrip-item:hover { background: var(--light-bg); }
+    .cstrip-flag { font-size: 2rem; line-height: 1; }
     .cstrip-code {
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 800;
-      font-size: 1.15rem;
+      font-weight: 900;
+      font-size: 1.7rem;
       color: var(--navy-dark);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+    .cstrip-name {
+      font-size: 0.65rem;
+      color: rgba(28,53,117,0.38);
+      font-weight: 600;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     /* ── SHARED SECTION TYPOGRAPHY ── */
@@ -745,7 +753,8 @@
       .nav-right { display: none; }
       .nav-descriptor, .nav-divider { display: none; }
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-      .countries-strip-inner { gap: 20px; }
+      .countries-strip-inner { gap: 24px; }
+      .cstrip-item { padding: 22px 12px; }
     }
 
     @media (max-width: 768px) {
@@ -758,8 +767,10 @@
       .services-inner { padding: 0 20px; }
       .services-hdr { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
       .services-hdr-right { display: none; }
-      .countries-strip { padding: 20px 0; }
-      .countries-strip-inner { padding: 0 20px; gap: 16px; }
+      .countries-strip { padding: 36px 0; }
+      .countries-strip-inner { padding: 0 20px; gap: 20px; }
+      .cstrip-code { font-size: 1.4rem; }
+      .cstrip-flag { font-size: 1.6rem; }
       .contact-section { padding: 64px 0; }
       .contact-inner { padding: 0 20px; gap: 32px; }
       .contact-form { padding: 28px 20px; }
@@ -931,18 +942,22 @@
       <div class="cstrip-item">
         <span class="cstrip-flag">🇩🇪</span>
         <span class="cstrip-code">DE</span>
+        <span class="cstrip-name">Deutschland</span>
       </div>
       <div class="cstrip-item">
         <span class="cstrip-flag">🇧🇪</span>
         <span class="cstrip-code">BE</span>
+        <span class="cstrip-name">Belgique</span>
       </div>
       <div class="cstrip-item">
         <span class="cstrip-flag">🇳🇱</span>
         <span class="cstrip-code">NL</span>
+        <span class="cstrip-name">Nederland</span>
       </div>
       <div class="cstrip-item">
         <span class="cstrip-flag">🇫🇷</span>
         <span class="cstrip-code">FR</span>
+        <span class="cstrip-name">France</span>
       </div>
     </div>
   </div>
