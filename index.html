@@ -530,7 +530,7 @@
     }
     .contact-item {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 14px;
     }
     .contact-item-icon {
@@ -820,6 +820,29 @@
       .btn-primary, .btn-outline, .btn-call { width: 100%; justify-content: center; }
       .services-inner, .contact-inner, .footer-inner { padding-left: 16px; padding-right: 16px; }
       .contact-form { padding: 24px 16px; }
+      .countries-strip { padding: 28px 0; }
+      .countries-strip-inner { padding: 0 16px; gap: 16px; }
+      .countries-strip-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        border: 1px solid rgba(28,53,117,0.09);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .cstrip-item {
+        padding: 14px 12px;
+        border-right: 1px solid rgba(28,53,117,0.09);
+        border-bottom: 1px solid rgba(28,53,117,0.09);
+        justify-content: center;
+      }
+      .cstrip-item:first-child { padding-left: 12px; }
+      .cstrip-item:last-child { padding-right: 12px; border-right: none; }
+      .cstrip-item:nth-child(2) { border-right: none; }
+      .cstrip-item:nth-child(3) { border-bottom: none; }
+      .cstrip-item:nth-child(4) { border-right: none; border-bottom: none; }
+      .cstrip-name { font-size: 0.88rem; }
+      .cstrip-flag-img { width: 26px; height: 18px; }
     }
 
     /* ── ANIMATIONS ── */
@@ -964,7 +987,7 @@
 <!-- ══ COUNTRIES STRIP ══ -->
 <section class="countries-strip">
   <div class="countries-strip-inner">
-    <span class="countries-strip-label" data-i18n="countries.label">Šalys kurias važiuojame</span>
+    <span class="countries-strip-label" data-i18n="countries.label">Šalys, kuriose važiuojame</span>
     <div class="countries-strip-list">
       <div class="cstrip-item">
         <img src="https://flagcdn.com/w80/de.png" alt="Germany" class="cstrip-flag-img">
@@ -1119,7 +1142,7 @@ const translations = {
     'card1.tag':'FTL','card1.title':'Tarptautinis transportas','card1.desc':'Pilno krovinio vežimas po visą Europą — greitai ir patikimai.',
     'card3.tag':'LTL','card3.title':'Daliniai kroviniai','card3.desc':'Iš Lietuvos į Europą ir iš Europos į Lietuvą.',
     'card.cta':'Užklausti',
-    'countries.label':'Šalys kurias važiuojame',
+    'countries.label':'Šalys, kuriose važiuojame',
     'country.de':'Vokietija','country.be':'Belgija','country.nl':'Nyderlandai','country.fr':'Prancūzija',
     'contact.label':'Susisiekite','contact.title':'Aptarkime jūsų krovinį',
     'contact.desc':'Turite klausimų dėl paslaugų arba norite gauti kainoraštį? Susisiekite su mumis — atsakysime greitai.',
