@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 96">
+  <!-- Speed mark: 4 wedges converging to right apex -->
+  <polygon points="0,0  0,8  445,28" fill="#1C3575"/>
+  <polygon points="0,14 0,22 445,28" fill="#1C3575"/>
+  <polygon points="0,28 0,36 445,28" fill="#1C3575"/>
+  <polygon points="0,40 0,48 445,28" fill="#1C3575"/>
+  <!-- AIKETRA text -->
+  <text x="0" y="93"
+    font-family="'Barlow Condensed','Arial Narrow',sans-serif"
+    font-weight="800" font-style="italic" font-size="58"
+    fill="#1C3575" textLength="447" lengthAdjust="spacingAndGlyphs">AIKETRA</text>
+</svg>

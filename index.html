@@ -11,7 +11,10 @@
   <meta property="og:description" content="Patikimas tarptautinio krovinių vežimo partneris. FTL ir LTL pervežimai iš Lietuvos į visą Europą.">
   <meta property="og:locale" content="lt_LT">
   <link rel="canonical" href="https://aiketra.lt/">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="theme-color" content="#0D1E45">
+  <link rel="preload" as="image" href="brand_assets/501074088_1207351251095747_7221691730581236856_n.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -19,11 +22,9 @@
     :root {
       --navy:      #1C3575;
       --navy-dark: #0D1E45;
-      --navy-mid:  #1a3068;
       --blue-btn:  #1e6fcf;
       --light-bg:  #F3F6FB;
       --green:     #2d9e4f;
-      --green-dark:#1a7a37;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,7 +38,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .font-display { font-family: 'Barlow Condensed', sans-serif; }
 
     /* ── NAV ── */
     nav {
@@ -194,29 +194,6 @@
       position: relative;
       z-index: 1;
     }
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 2px;
-      padding: 5px 14px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 28px;
-    }
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--blue-btn);
-    }
     .hero h1 {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(3rem, 5.5vw, 5rem);
@@ -310,22 +287,6 @@
       transform: translateY(-2px);
     }
 
-    /* hero fleet image strip */
-    .hero-fleet {
-      position: relative;
-      margin-top: 0;
-      z-index: 1;
-    }
-    .hero-fleet-img {
-      width: 100%;
-      max-height: 380px;
-      object-fit: cover;
-      object-position: center 60%;
-      display: block;
-      filter: brightness(0.6) saturate(0.55);
-      mask-image: linear-gradient(to bottom, transparent 0%, black 22%, black 58%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 22%, black 58%, transparent 100%);
-    }
 
     /* ── SERVICE CARDS ── */
     .services-strip {
@@ -551,10 +512,14 @@
       font-size: 0.95rem;
       font-weight: 600;
     }
-    .contact-item-text span {
+    .contact-item-text span,
+    .contact-item-text a {
       color: rgba(255,255,255,0.45);
       font-size: 0.82rem;
+      text-decoration: none;
+      transition: color 0.2s;
     }
+    .contact-item-text a:hover { color: rgba(255,255,255,0.85); }
     .contact-form {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
@@ -598,6 +563,15 @@
       color: #fff;
       outline: none;
       transition: border-color 0.2s;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.35)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
     }
     .form-group input::placeholder,
     .form-group textarea::placeholder {
@@ -785,6 +759,7 @@
       .hero h1 { font-size: clamp(2rem, 7vw, 3rem); margin-bottom: 16px; }
       .hero-desc { margin-bottom: 28px; }
       .hero-btns { gap: 12px; margin-bottom: 28px; }
+      .services-strip { padding-top: 48px; }
       .services-inner { padding: 0 20px; }
       .services-hdr { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
       .services-hdr-right { display: none; }
@@ -813,7 +788,8 @@
 
     @media (max-width: 480px) {
       .nav-inner { padding: 0 16px; }
-      .hero { min-height: 0; padding-top: 80px; padding-bottom: 36px; }
+      .hero { min-height: 55vh; padding-top: 40px; padding-bottom: 36px; }
+      .services-strip { padding-top: 36px; }
       .hero-inner { padding: 0 16px; }
       .hero h1 { font-size: clamp(1.7rem, 5.5vw, 2.2rem); margin-bottom: 12px; }
       .hero-desc { font-size: 0.88rem; margin-bottom: 18px; }
@@ -903,8 +879,8 @@
       </button>
     </div>
     <div class="mobile-nav-links">
-      <a href="#services" class="mobile-nav-link" onclick="toggleMobileNav()">Paslaugos</a>
-      <a href="#contact" class="mobile-nav-link" onclick="toggleMobileNav()">Susisiekite</a>
+      <a href="#services" class="mobile-nav-link" onclick="toggleMobileNav()" data-i18n="nav.services">Paslaugos</a>
+      <a href="#contact" class="mobile-nav-link" onclick="toggleMobileNav()" data-i18n="nav.contact">Susisiekite</a>
     </div>
     <div class="mobile-nav-footer">
       <div class="mobile-nav-lang">
@@ -950,14 +926,13 @@
       <div>
         <h2 class="section-title" style="color:#fff" data-i18n="services.title">Mūsų paslaugos</h2>
       </div>
-      <div class="services-hdr-right" data-i18n="services.subtitle">2 paslaugų kryptys · visa Europa</div>
     </div>
   </div>
   <div class="services-scroll">
 
     <a class="service-card" href="#contact">
       <img src="brand_assets/501448821_1207351244429081_1785009407745794931_n.jpg"
-           alt="Tarptautinis FTL" class="service-card-img">
+           alt="Tarptautinis FTL" class="service-card-img" loading="lazy">
       <div class="service-card-body">
         <div class="service-tag" data-i18n="card1.tag">FTL</div>
         <h3 data-i18n="card1.title">Tarptautinis transportas</h3>
@@ -971,7 +946,7 @@
 
     <a class="service-card" href="#contact">
       <img src="brand_assets/501074088_1207351251095747_7221691730581236856_n.jpg"
-           alt="LTL daliniai kroviniai" class="service-card-img">
+           alt="LTL daliniai kroviniai" class="service-card-img" loading="lazy">
       <div class="service-card-body">
         <div class="service-tag" data-i18n="card3.tag">LTL</div>
         <h3 data-i18n="card3.title">Daliniai kroviniai</h3>
@@ -991,31 +966,31 @@
   <div class="countries-strip-inner">
     <div class="countries-strip-list">
       <div class="cstrip-item">
-        <img src="https://flagcdn.com/w80/de.png" alt="Germany" class="cstrip-flag-img">
+        <img src="https://flagcdn.com/w80/de.png" alt="Germany" class="cstrip-flag-img" loading="lazy">
         <span class="cstrip-name" data-i18n="country.de">Vokietija</span>
       </div>
       <div class="cstrip-item">
-        <img src="https://flagcdn.com/w80/be.png" alt="Belgium" class="cstrip-flag-img">
+        <img src="https://flagcdn.com/w80/be.png" alt="Belgium" class="cstrip-flag-img" loading="lazy">
         <span class="cstrip-name" data-i18n="country.be">Belgija</span>
       </div>
       <div class="cstrip-item">
-        <img src="https://flagcdn.com/w80/nl.png" alt="Netherlands" class="cstrip-flag-img">
+        <img src="https://flagcdn.com/w80/nl.png" alt="Netherlands" class="cstrip-flag-img" loading="lazy">
         <span class="cstrip-name" data-i18n="country.nl">Nyderlandai</span>
       </div>
       <div class="cstrip-item">
-        <img src="https://flagcdn.com/w80/fr.png" alt="France" class="cstrip-flag-img">
+        <img src="https://flagcdn.com/w80/fr.png" alt="France" class="cstrip-flag-img" loading="lazy">
         <span class="cstrip-name" data-i18n="country.fr">Prancūzija</span>
       </div>
       <div class="cstrip-item">
-        <img src="https://flagcdn.com/w80/es.png" alt="Spain" class="cstrip-flag-img">
+        <img src="https://flagcdn.com/w80/es.png" alt="Spain" class="cstrip-flag-img" loading="lazy">
         <span class="cstrip-name" data-i18n="country.es">Ispanija</span>
       </div>
       <div class="cstrip-item">
-        <img src="https://flagcdn.com/w80/it.png" alt="Italy" class="cstrip-flag-img">
+        <img src="https://flagcdn.com/w80/it.png" alt="Italy" class="cstrip-flag-img" loading="lazy">
         <span class="cstrip-name" data-i18n="country.it">Italija</span>
       </div>
       <div class="cstrip-item">
-        <img src="https://flagcdn.com/w80/lt.png" alt="Lithuania" class="cstrip-flag-img">
+        <img src="https://flagcdn.com/w80/lt.png" alt="Lithuania" class="cstrip-flag-img" loading="lazy">
         <span class="cstrip-name" data-i18n="country.lt">Lietuva</span>
       </div>
     </div>
@@ -1036,7 +1011,7 @@
           </div>
           <div class="contact-item-text">
             <strong data-i18n="contact.address.label">Adresas</strong>
-            <span>Pramonės g. 13, Alytus</span>
+            <a href="https://maps.google.com/?q=Pramonės+g.+13,+Alytus,+Lietuva" target="_blank" rel="noopener noreferrer">Pramonės g. 13, Alytus</a>
           </div>
         </div>
         <div class="contact-item">
@@ -1045,7 +1020,7 @@
           </div>
           <div class="contact-item-text">
             <strong data-i18n="contact.phone.label">Telefonas</strong>
-            <span>+370 315 71020</span>
+            <a href="tel:+37031571020">+370 315 71020</a>
           </div>
         </div>
         <div class="contact-item">
@@ -1054,7 +1029,7 @@
           </div>
           <div class="contact-item-text">
             <strong data-i18n="contact.email.label">El. paštas</strong>
-            <span>info@aiketra.lt</span>
+            <a href="mailto:info@aiketra.lt">info@aiketra.lt</a>
           </div>
         </div>
         <div class="contact-item">
@@ -1079,7 +1054,7 @@
         <div style="width:40px; height:1px; background:rgba(255,255,255,0.07); margin:36px auto 0;"></div>
       </div>
       <div id="contact-form-fields">
-        <input type="hidden" name="_subject" value="Užklausa — UAB AIKETRA">
+        <input type="hidden" name="_subject" id="form-subject" value="Užklausa — UAB AIKETRA">
         <div class="form-row">
           <div class="form-group">
             <label data-i18n="form.name">Vardas</label>
@@ -1117,7 +1092,8 @@
       </div>
     </form>
   </div>
-  <div style="margin-top:60px; opacity:0.9; filter:saturate(0.45) brightness(0.82);">
+  <div style="margin-top:60px; opacity:0.9; filter:saturate(0.45) brightness(0.82); position:relative;">
+    <div id="map-shield" style="position:absolute;inset:0;z-index:2;cursor:pointer;" onclick="this.style.display='none'" title="Spustelėkite norėdami sąveikauti su žemėlapiu"></div>
     <iframe
       src="https://maps.google.com/maps?q=Pramonės+g.+13,+Alytus,+Lietuva&output=embed&z=15"
       width="100%" height="280" frameborder="0"
@@ -1148,15 +1124,15 @@
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="5" width="16" height="11" rx="1.5"/><path d="M2 7l8 5 8-5" stroke-linecap="round"/></svg>
           info@aiketra.lt
         </a>
-        <a href="http://www.aiketra.lt" target="_blank" class="footer-contact-link">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2c-2.5 3-4 5-4 8s1.5 5 4 8M10 2c2.5 3 4 5 4 8s-1.5 5-4 8" stroke-linecap="round"/></svg>
+        <a href="https://aiketra.lt" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 4H4a1 1 0 00-1 1v11a1 1 0 001 1h11a1 1 0 001-1v-5M13 3h4m0 0v4m0-4L9 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
           www.aiketra.lt
         </a>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy" data-i18n="footer.copy">© 2025 UAB AIKETRA. Visos teisės saugomos.</p>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 UAB AIKETRA. Visos teisės saugomos.</p>
       <p class="footer-reg">Pramonės g. 13, LT-62175 Alytus, Lietuva</p>
     </div>
 
@@ -1167,7 +1143,7 @@
 <script>
 const translations = {
   lt: {
-    'nav.descriptor':'Tarptautinė logistika','nav.cta':'Susisiekti',
+    'nav.descriptor':'Tarptautinė logistika','nav.cta':'Susisiekti','nav.services':'Paslaugos','nav.contact':'Susisiekite',
     'hero.title':'Patikimi logistikos sprendimai',
     'hero.desc':'UAB AIKETRA — jūsų patikimas partneris tarptautiniame krovinių vežime. Turime modernų vilkikų parką, profesionalius vairuotojus ir laikomės aukščiausių saugos standartų.',
     'hero.btn.primary':'Sužinoti daugiau','hero.btn.call':'Skambinti dabar','hero.btn.secondary':'Kontaktai',
@@ -1184,13 +1160,13 @@ const translations = {
     'form.service.opt1':'FTL — Tarptautinis transportas',
     'form.service.opt3':'LTL — Daliniai kroviniai','form.service.opt5':'Kita',
     'form.name.placeholder':'Jūsų vardas','form.message.placeholder':'Aprašykite savo krovinio poreikius...',
-    'form.submit':'Siųsti žinutę',
+    'form.submit':'Siųsti žinutę','form.subject':'Užklausa — UAB AIKETRA',
     'footer.tagline':'Tarptautinė logistika · FTL · LTL',
     'footer.since':'Nuo 2010 metų — patikimi Europos maršrutuose',
-    'footer.copy':'© 2025 UAB AIKETRA. Visos teisės saugomos.'
+    'footer.copy':'© 2026 UAB AIKETRA. Visos teisės saugomos.'
   },
   en: {
-    'nav.descriptor':'International logistics','nav.cta':'Contact us',
+    'nav.descriptor':'International logistics','nav.cta':'Contact us','nav.services':'Services','nav.contact':'Contact',
     'hero.title':'Reliable logistics solutions',
     'hero.desc':'UAB AIKETRA — your trusted partner in international freight transportation. We operate a modern fleet, employ professional drivers, and uphold the highest safety standards.',
     'hero.btn.primary':'Learn more','hero.btn.call':'Call now','hero.btn.secondary':'Contacts',
@@ -1207,13 +1183,13 @@ const translations = {
     'form.service.opt1':'FTL — International transport',
     'form.service.opt3':'LTL — Partial loads','form.service.opt5':'Other',
     'form.name.placeholder':'Your name','form.message.placeholder':'Describe your cargo requirements...',
-    'form.submit':'Send message',
+    'form.submit':'Send message','form.subject':'Enquiry — UAB AIKETRA',
     'footer.tagline':'International logistics · FTL · LTL',
     'footer.since':'Since 2010 — trusted across European routes',
-    'footer.copy':'© 2025 UAB AIKETRA. All rights reserved.'
+    'footer.copy':'© 2026 UAB AIKETRA. All rights reserved.'
   },
   ru: {
-    'nav.descriptor':'Международная логистика','nav.cta':'Связаться',
+    'nav.descriptor':'Международная логистика','nav.cta':'Связаться','nav.services':'Услуги','nav.contact':'Контакты',
     'hero.title':'Надёжные логистические решения',
     'hero.desc':'UAB AIKETRA — ваш надёжный партнёр в сфере международных грузоперевозок. Современный автопарк, профессиональные водители и высокие стандарты безопасности.',
     'hero.btn.primary':'Узнать больше','hero.btn.call':'Позвонить','hero.btn.secondary':'Контакты',
@@ -1230,13 +1206,13 @@ const translations = {
     'form.service.opt1':'FTL — Международные перевозки',
     'form.service.opt3':'LTL — Сборные грузы','form.service.opt5':'Другое',
     'form.name.placeholder':'Ваше имя','form.message.placeholder':'Опишите ваши потребности в перевозке...',
-    'form.submit':'Отправить сообщение',
+    'form.submit':'Отправить сообщение','form.subject':'Запрос — UAB AIKETRA',
     'footer.tagline':'Международная логистика · FTL · LTL',
     'footer.since':'С 2010 года — надёжные европейские маршруты',
-    'footer.copy':'© 2025 UAB AIKETRA. Все права защищены.'
+    'footer.copy':'© 2026 UAB AIKETRA. Все права защищены.'
   },
   de: {
-    'nav.descriptor':'Internationale Logistik','nav.cta':'Kontakt',
+    'nav.descriptor':'Internationale Logistik','nav.cta':'Kontakt','nav.services':'Dienstleistungen','nav.contact':'Kontakt',
     'hero.title':'Zuverlässige Logistiklösungen',
     'hero.desc':'UAB AIKETRA — Ihr zuverlässiger Partner im internationalen Güterverkehr. Moderner Fuhrpark, professionelle Fahrer und höchste Sicherheitsstandards.',
     'hero.btn.primary':'Mehr erfahren','hero.btn.call':'Jetzt anrufen','hero.btn.secondary':'Kontakt',
@@ -1253,13 +1229,13 @@ const translations = {
     'form.service.opt1':'FTL — Internationaler Transport',
     'form.service.opt3':'LTL — Teilladungen','form.service.opt5':'Sonstiges',
     'form.name.placeholder':'Ihr Name','form.message.placeholder':'Beschreiben Sie Ihre Frachtanforderungen...',
-    'form.submit':'Nachricht senden',
+    'form.submit':'Nachricht senden','form.subject':'Anfrage — UAB AIKETRA',
     'footer.tagline':'Internationale Logistik · FTL · LTL',
     'footer.since':'Seit 2010 — zuverlässig auf europäischen Routen',
-    'footer.copy':'© 2025 UAB AIKETRA. Alle Rechte vorbehalten.'
+    'footer.copy':'© 2026 UAB AIKETRA. Alle Rechte vorbehalten.'
   },
   pl: {
-    'nav.descriptor':'Logistyka międzynarodowa','nav.cta':'Kontakt',
+    'nav.descriptor':'Logistyka międzynarodowa','nav.cta':'Kontakt','nav.services':'Usługi','nav.contact':'Kontakt',
     'hero.title':'Niezawodne rozwiązania logistyczne',
     'hero.desc':'UAB AIKETRA — Twój zaufany partner w międzynarodowym transporcie towarów. Nowoczesna flota, profesjonalni kierowcy i najwyższe standardy bezpieczeństwa.',
     'hero.btn.primary':'Dowiedz się więcej','hero.btn.call':'Zadzwoń','hero.btn.secondary':'Kontakt',
@@ -1276,10 +1252,10 @@ const translations = {
     'form.service.opt1':'FTL — Transport międzynarodowy',
     'form.service.opt3':'LTL — Ładunki częściowe','form.service.opt5':'Inne',
     'form.name.placeholder':'Twoje imię','form.message.placeholder':'Opisz swoje potrzeby transportowe...',
-    'form.submit':'Wyślij wiadomość',
+    'form.submit':'Wyślij wiadomość','form.subject':'Zapytanie — UAB AIKETRA',
     'footer.tagline':'Logistyka międzynarodowa · FTL · LTL',
     'footer.since':'Od 2010 roku — zaufani na europejskich trasach',
-    'footer.copy':'© 2025 UAB AIKETRA. Wszelkie prawa zastrzeżone.'
+    'footer.copy':'© 2026 UAB AIKETRA. Wszelkie prawa zastrzeżone.'
   }
 };
 
@@ -1297,6 +1273,8 @@ function setLanguage(lang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
+  const subj = document.getElementById('form-subject');
+  if (subj && t['form.subject']) subj.value = t['form.subject'];
   document.documentElement.lang = lang;
   localStorage.setItem('aiketra_lang', lang);
 }
@@ -1523,7 +1501,16 @@ formspree('initForm', {
   }
 });
 </script>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+<script src="https://unpkg.com/@formspree/ajax@1.1.5/dist/global.js" defer></script>
+
+
+<noscript>
+  <style>
+    .hamburger { display: none !important; }
+    .nav-right { display: flex !important; }
+    .lang-toggle { display: none; }
+  </style>
+</noscript>
 
 </body>
 </html>

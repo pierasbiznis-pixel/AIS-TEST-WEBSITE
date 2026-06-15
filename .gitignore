@@ -10,6 +10,7 @@ temporary screenshots/
 
 # Reference images (root-level only)
 /*.png
+!favicon.png
 
 # Large video files
 *.mov
